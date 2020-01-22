@@ -20,7 +20,22 @@ app.post("/", function(req, res){
   var lastName = req.body.lName;
   var email = req.body.email;
 
-  console.log(firstName, lastName, email);
+
+  var option = {
+    url: "https://us4.api.mailchimp.com/3.0/lists/d59371a509",
+    method: "POST",
+  };
+
+  request(option, function(error, response, body){
+    if(error){
+      console.log(error);
+    }
+    else{
+      console.log(response.statusCode);
+    }
+  });
+
+  
 });
 
 
@@ -30,4 +45,4 @@ app.listen(3000, function(){
 
 //2e374310a51c1bca9a8d60c3833edb33-us4
 
-//d59371a509
+//
